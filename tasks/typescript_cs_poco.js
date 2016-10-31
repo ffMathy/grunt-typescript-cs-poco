@@ -18,7 +18,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('typescript_cs_poco', 'Converts C# code into TypeScript interfaces.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options();
-    
+
     // Iterate over all specified file groups.
     this.files.forEach(function(f) {
       var src = f.src.filter(function(filepath) {
@@ -32,6 +32,9 @@ module.exports = function(grunt) {
         });
       // Concat specified files.
       src.forEach(function(file) {
+        // Print a success message.
+        grunt.log.writeln('Generating TypeScript code from "' + file + '"...');
+
         var pathSeparations = file.split('/');
         var fileName = pathSeparations[pathSeparations.length-1];
         var targetFileName = fileName.replace(".cs", ".d.ts");
@@ -44,7 +47,7 @@ module.exports = function(grunt) {
         grunt.file.write(targetFilePath, fileSource);
 
         // Print a success message.
-        grunt.log.writeln('File "' + targetFilePath + '" generated from "' + file + '".');
+        grunt.log.writeln('File "' + targetFilePath + '" generated.');
       });
     });
   });
