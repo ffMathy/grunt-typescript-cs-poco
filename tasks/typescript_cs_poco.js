@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         var fileName = pathSeparations[pathSeparations.length-1];
         var targetFileName = fileName.replace(".cs", ".d.ts");
 
-        var fileSource = grunt.file.read(filepath);
+        var fileSource = grunt.file.read(file);
         fileSource = pocoGen(fileSource, options);
 
         // Write the destination file.
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         grunt.file.write(targetFilePath, fileSource);
 
         // Print a success message.
-        grunt.log.writeln('File "' + targetFilePath + '" created.');
+        grunt.log.writeln('File "' + targetFilePath + '" generated from "' + file + '".');
       });
     });
   });

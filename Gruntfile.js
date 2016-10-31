@@ -12,19 +12,12 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    jshint: {
-      all: [
-        'Gruntfile.js',
-        'tasks/*.js',
-      ],
-      options: {
-        jshintrc: '.jshintrc'
-      }
-    },
-
     // Configuration to be run (and then tested).
     typescript_cs_poco: {
-      
+      'samples/result': ['samples/source/*.cs'],
+      options: {
+        //options go here.
+      }
     }
 
   });
@@ -32,10 +25,7 @@ module.exports = function(grunt) {
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['typescript_cs_poco']);
 
 };
