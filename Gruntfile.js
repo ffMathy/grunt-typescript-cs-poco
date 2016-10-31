@@ -11,16 +11,7 @@
 module.exports = function(grunt) {
 
   // Project configuration.
-  grunt.initConfig({
-    // Configuration to be run (and then tested).
-    typescript_cs_poco: {
-      'samples/result': ['samples/source/*.cs'],
-      options: {
-        //options go here.
-      }
-    }
-
-  });
+  grunt.initConfig({});
 
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');

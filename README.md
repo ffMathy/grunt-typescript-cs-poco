@@ -1,36 +1,66 @@
 # grunt-typescript-cs-poco
 
-> Converts C# code into TypeScript interfaces.
+## Overview
 
-## Getting Started
-This plugin requires Grunt `~0.4.5`
+See https://github.com/ffMathy/typescript-cs-poco for actual implementation.  This is just a wrapper.
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+Grunt-typescript-cs-poco is a Grunt plugin that translates basic C# POCO classes like this:
+
+```C#
+public class MyPoco
+{
+	public string Name { get; set; }
+	public int Id { get; set; }
+	public long Value { get; set; }
+	public bool IsValid { get; set; }
+	public SomeOtherPoco RelatedObject { get; set; }
+}
+```
+
+Into this TypeScript file:
+
+```typescript
+interface MyPoco {
+	Name: string;
+	Id: number;
+	Value: number;
+	IsValid: boolean;
+	RelatedObject: SomeOtherPoco;
+}
+```
+
+## Installation
+
+Install with NPM:
 
 ```shell
-npm install grunt-typescript-cs-poco --save-dev
+npm install --save-dev grunt-typescript-cs-poco
 ```
 
-Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
+## Use
 
-```js
-grunt.loadNpmTasks('grunt-typescript-cs-poco');
+```javascript
+module.exports = function(grunt) {
+
+  grunt.initConfig({
+    // Generate TypeScript interfaces from C# files in samples/source and put them into samples/result as one .d.ts file for every .cs file.
+    typescript_cs_poco: {
+      'samples/result': ['samples/source/*.cs'],
+      options: {
+        //options go here. see https://github.com/ffMathy/typescript-cs-poco for a total list of options.
+      }
+    }
+
+  });
+
+  // Actually load this plugin's task(s).
+  grunt.loadTasks('tasks');
+
+  // By default, lint and run all tests.
+  grunt.registerTask('default', ['typescript_cs_poco']);
+
+};
+
 ```
 
-## The "typescript_cs_poco" task
-
-### Overview
-In your project's Gruntfile, add a section named `typescript_cs_poco` to the data object passed into `grunt.initConfig()`.
-
-```js
-grunt.initConfig({
-  typescript_cs_poco: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-});
-```
+This will create a single .d.ts file for every .cs file it finds.
