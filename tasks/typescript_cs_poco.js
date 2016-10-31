@@ -17,8 +17,8 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('typescript_cs_poco', 'Converts C# code into TypeScript interfaces.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({});
-
+    var options = this.options();
+    
     // Iterate over all specified file groups.
     this.files.forEach(function(f) {
       var src = f.src.filter(function(filepath) {
