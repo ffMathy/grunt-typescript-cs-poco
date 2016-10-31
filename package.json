@@ -1,0 +1,41 @@
+{
+  "name": "grunt-typescript-cs-poco",
+  "description": "Converts C# code into TypeScript interfaces.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ffMathy/grunt-typescript-cs-poco",
+  "author": {
+    "name": "Mathias Lorenzen",
+    "url": "https://github.com/ffMathy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ffMathy/grunt-typescript-cs-poco.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ffMathy/grunt-typescript-cs-poco/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ffMathy/grunt-typescript-cs-poco/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "typescript-cs-poco": "git+https://github.com/ffMathy/typescript-cs-poco.git"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
