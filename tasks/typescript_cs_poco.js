@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       // Concat specified files.
       src.forEach(function(file) {
         // Print a success message.
-        grunt.log.writeln('Generating TypeScript code from "' + file + '"...');
+        grunt.log.writeln('Generating TypeScript code from "' + file["cyan"] + '"...');
 
         var pathSeparations = file.split('/');
         var fileName = pathSeparations[pathSeparations.length-1];
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
         grunt.file.write(targetFilePath, fileSource);
 
         // Print a success message.
-        grunt.log.writeln('File "' + targetFilePath + '" generated.');
+        grunt.log.writeln('File "' + targetFilePath["green"] + '" generated.');
       });
     });
   });
