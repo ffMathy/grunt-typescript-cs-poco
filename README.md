@@ -1,3 +1,6 @@
+# DEPRECATED!
+This library has been deprecated in favor of the new, much more stable and flexible: https://github.com/ffMathy/FluffySpoon.JavaScript.CSharpToTypeScriptGenerator.Grunt/
+
 # grunt-typescript-cs-poco
 
 ## Overview
